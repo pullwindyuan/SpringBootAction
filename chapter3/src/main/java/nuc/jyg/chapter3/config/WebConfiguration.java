@@ -38,9 +38,11 @@ public class WebConfiguration {
 
     public class MyFilter implements Filter {
 
+        private FilterConfig filterConfig;
+
         @Override
         public void init(FilterConfig filterConfig) throws ServletException {
-
+            this.filterConfig = filterConfig;
         }
 
         @Override
