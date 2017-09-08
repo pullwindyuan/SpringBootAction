@@ -9,6 +9,11 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ * @Author Nuc YongGuang Ji.
+ * @Date 21:43 2017/9/8.
+ * @Descrip
+ */
 @Configuration
 public class WebConfiguration {
 
