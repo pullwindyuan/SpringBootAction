@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>JiYongGuang</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#saveUser").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/user/add",
+                    data: {
+                        username: $("#username").val(),
+                        password: $("#password").val(),
+                        uri: $("#uri").val()
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code == 1)
+                        <!-- 当前页面打开URL页面 -->
+                            window.location.href = "/home";
+                        else
+                            alert("账号密码不能为空！");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="addModal" class="" tabindex="-1" role="dialog">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">添加用户</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" method="post" action="/user/add">
+
+                    <div class="form-group" style="display: none;">
+                        <label class="col-sm-2 control-label">id</label>
+                        <div class="col-sm-8">
+                            <input id="id" type="text" class="form-control" placeholder=""/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">姓名</label>
+                        <div class="col-sm-8">
+                            <input id="username" type="text" class="form-control" placeholder="输入姓名"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-8">
+                            <input id="password" type="text" class="form-control" placeholder="输入密码"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">地址</label>
+                        <div class="col-sm-8">
+                            <input id="uri" type="text" class="form-control" placeholder="输入地址"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button data-bb-handler="confirm" type="submit" id="saveUser" class="btn btn-success radius">
+                    <span><i class="icon-ok"></i></span> &nbsp;保&nbsp;&nbsp;存
+                </button>
+                <button data-bb-handler="cancel" type="reset" id="cancelSave" class="btn btn-danger radius">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

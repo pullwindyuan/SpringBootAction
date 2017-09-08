@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2016 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="nuc.jyg.dao.mapper.UserMapper">
+    <!--用到了User别名-->
+    <resultMap type="nuc.jyg.model.User" id="userResultMap">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="uri" jdbcType="VARCHAR" property="uri"/>
+    </resultMap>
+
+    <select id="queryUserById" parameterType="java.lang.Long" resultMap="userResultMap">
+        SELECT *
+        FROM
+            user
+        WHERE
+            id = #{id}
+    </select>
+
+    <select id="queryAllUser" resultMap="userResultMap">
+        SELECT *
+        FROM
+            user
+    </select>
+
+    <insert id="addUser">
+        INSERT INTO
+            user (username.password, uri)
+        VALUES (#{username}, #{password}, #{uri})
+    </insert>
+
+    <update id="updateUser">
+        UPDATE
+            user
+        SET
+            username = #{username}, password = #{password}, uri = #{uri}
+        WHERE
+            id = #{id}
+    </update>
+
+    <delete id="deleteUser">
+        DELETE
+        FROM
+            user
+        WHERE
+            id = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>JiYongGuang</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#delete").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/user/delete",
+                    data: {
+                        id: $("#id").val()
+                    },
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code == 1)
+                        <!-- 当前页面打开URL页面 -->
+                            window.location.href = "/home";
+                        else
+                            alert("账号密码不能为空！");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-6 column">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <h3>
+                        Thymeleaf
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 column">
+            <div class="row clearfix">
+                <div class="btn-group">
+                    <a class="btn btn-success" id="add" href="/add">添加</a>
+                    <button type="button" class="btn btn-danger" id="delete">删除</button>
+                    <a class="btn btn-info" id="update" href="/update">修改</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr/>
+<table class="table table-striped table-bordered table-hover">
+    <tr class="info">
+        <td><input type="checkbox" value=""/></td>
+        <td>用户名</td>
+        <td>密码</td>
+        <td>website</td>
+        <td></td>
+    </tr>
+    <!--/*@thymesVar id="userList" type=""*/-->
+    <tr th:each="user : ${userList}" class="success">
+        <td><input id="id" type="checkbox" value="" th:attr="value=${user.id}"/></td>
+        <!--<td id="idt"><input type="checkbox" th:text="${user.id}"/></td>-->
+        <td th:id="${user.username}" th:text="${user.username}">冀永光</td>
+        <td th:id="${user.password}" th:text="${user.password}">jiyongguang.</td>
+        <td th:id="${user.uri}"><a class="btn btn-primary" th:href="${user.uri}">点击我</a></td>
+        <td><a class="btn btn-info" href="/user/queryone" th:href="@{/user/queryone(id=${user.id})}">修改</a></td>
+        <!--<td><a id="" class="btn btn-info" th:href="@{/user/delete(id=${user.id})}">删除我</a></td>-->
+    </tr>
+</table>
+</body>
+</html>
