@@ -20,8 +20,6 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @Api("UserController相关的api")
 public class UserController {
 
-    private static final Logger logger = (Logger) LoggerFactory.getLogger(UserController.class);
-
     @Autowired
     UserService userService;
 
