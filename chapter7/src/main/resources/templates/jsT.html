@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsT</title>
+    <script type="text/javascript" src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").hide();
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#p").click(function () {
+                $(this).hide();
+            });
+
+            $("#button1").click(function () {
+                $("#div1").load("www.baidu.com", function (responseTxt, statusTxt, xhr) {
+                    alert(xhr.statusText);
+                });
+            });
+
+            $("#btn1").click(function () {
+                $("div").load("e://text/demo.text");
+            });
+
+            $("#button2").click(function () {
+                $("div").load("demo_text.txt", function (responstTXT, statusTxt, xhr) {
+                    if (statusTxt == "success")
+                        alert("A");
+                    if (statusTxt == "false")
+                        alert("B" + xhr.statusText);
+                })
+            });
+
+            $("#button3").click(function () {
+                $.get("demo_text.txt", function (data, status) {
+                    alert("Data:" + data + "\nStatus:" + status);
+                });
+            });
+
+            $("#button4").click(function () {
+                $.post("demo_text.jsp", {
+                        name: "jiyongguang",
+                        password: "jiyongguang"
+                    },
+                    function (data, status) {
+                        alert("Data:" + data + "\nStatus:" + status)
+                    });
+            });
+
+            $("#button5").click(function () {
+                htmlobj = $.ajax({
+                    url: "/jquery/test1.txt",
+                    async: false
+                });
+                $("#div").html(htmlobj.responseText);
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        var employees = [
+            {"firstName": "Bill", "lastName": "Gates"},
+            {"firstName": "George", "lastName": "Bush"},
+            {"firstName": "Thomas", "lastName": "Carter"}
+        ];
+        var JsonObject = {
+            "username": "jyg",
+            "password": "jyg",
+            "city": "us",
+            "birthday": "723",
+            "phone": employees
+        };
+        document.getElementById("name").innerHTML = JsonObject.username
+        document.getElementById("password").innerHTML = JsonObject.password
+        document.getElementById("city").innerHTML = JsonObject.city
+        document.getElementById("birthday").innerHTML = JsonObject.birthday
+        //        document.getElementById("phone").innerHTML = JsonObject.phone
+
+    </script>
+</head>
+<body>
+<p>你好</p>
+</body>
+</html>

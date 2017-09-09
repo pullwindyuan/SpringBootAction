@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>JiYongGuang</title>
+    <!--<link rel="stylesheet" href="/css/bootstrap.min.css"/>-->
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+</head>
+
+<body>
+<h1>Thymeleaf</h1>
+<hr/>
+    <table class="table table-striped table-bordered table-hover">
+        <tr class="info">
+            <td>用户名</td>
+            <td>密码</td>
+        </tr>
+        <!--/*@thymesVar id="userList" type=""*/-->
+        <tr th:each="user : ${userList}" class="success">
+            <td th:text="${user.username}">冀永光</td>
+            <td th:text="${user.password}">jiyongguang.</td>
+            <td><a class="btn btn-primary" th:href="${user.uri}" >点击我</a></td>
+        </tr>
+    </table>
+</body>
+</html>
