@@ -16,7 +16,7 @@ import java.util.*;
  * @Descrip
  */
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/user")
 public class UserController {
 
     // 创建线程安全的Map

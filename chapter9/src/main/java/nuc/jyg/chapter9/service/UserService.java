@@ -13,8 +13,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    public void saveUser(Integer id) throws Exception {
-        User user = new User();
+    /**
+     * @param user
+     * @return 用户 ID
+     * @throws Exception
+     */
+    public Integer saveUser(User user) throws Exception {
         String username = user.getUsername();
         String password = user.getPassword();
 
@@ -23,5 +27,7 @@ public class UserService {
         } else if ("".equals(password) || password == null) {
             throw new UserException(ResultEnum.PASSWORD_ILLEGALITY);
         }
+
+        return 1;
     }
 }
