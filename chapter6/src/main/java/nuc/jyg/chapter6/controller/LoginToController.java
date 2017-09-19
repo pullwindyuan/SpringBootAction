@@ -52,6 +52,7 @@ public class LoginToController {
             model.addAttribute("userList", userList);
             return "home"; // 按访问映射来redirect
         }
+
         log.info(username + password);
         return "redirect:/";
     }
