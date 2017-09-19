@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.logging.Logger;
 
@@ -18,12 +19,11 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @RestController
 @RequestMapping("/user")
 @Api("UserController相关的api")
-public class UserController {
+public class UserController {// http://localhost:8080/swagger-ui.html
 
     @Autowired
     UserService userService;
 
-    // http://localhost:8080/swagger-ui.html
     @ApiOperation("获取用户信息")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "header", name = "username", dataType = "String",

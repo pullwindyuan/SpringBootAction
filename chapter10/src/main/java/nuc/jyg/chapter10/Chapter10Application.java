@@ -1,13 +1,12 @@
-package nuc.jyg.chapter1;
+package nuc.jyg.chapter10;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-public class Chapter1Application {
+public class Chapter10Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Chapter1Application.class, args);
+		SpringApplication.run(Chapter10Application.class, args);
 	}
 }

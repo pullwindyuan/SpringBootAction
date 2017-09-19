@@ -1,6 +1,7 @@
 package nuc.jyg.chapter7;
 
 import com.zaxxer.hikari.HikariDataSource;
+import org.apache.logging.log4j.core.config.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Controller
 @Api("HelloController相关的Api")
-public class SwaggerController {
+public class SwaggerController {// http://localhost:8080/swagger-ui.html
 
     @ApiOperation("访问SpringBoot")
     @ApiResponses({

@@ -22,11 +22,10 @@ import java.util.Map;
  * @Date 20:09 2017/7/25.
  * @Descrip
  */
-@SuppressWarnings("SpringJavaAutowiringInspection")
 @Log4j2
 @Controller
 //@RequestMapping(path = "/login")
-public class LoginController {
+public class LoginToController {
 
     @Autowired
     UserService userService;

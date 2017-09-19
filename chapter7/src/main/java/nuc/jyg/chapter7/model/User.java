@@ -3,6 +3,8 @@ package nuc.jyg.chapter7.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import javax.validation.constraints.Min;
+
 /**
  * @Author Nuc YongGuang Ji.
  * @Date 16:11 2017/7/17.
