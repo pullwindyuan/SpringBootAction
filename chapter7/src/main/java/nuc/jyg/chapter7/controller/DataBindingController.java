@@ -25,4 +25,5 @@ public class DataBindingController {
         }
         return user;
     }
+
 }
